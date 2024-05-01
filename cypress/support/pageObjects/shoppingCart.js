@@ -34,6 +34,10 @@ class ShoppingCart {
   removeItem() {
     return cy.get(":nth-child(2) > .remove-from-cart > input");
   }
+
+  shoppingCartQty() {
+    return cy.get(".cart-qty");
+  }
 }
 
 export default ShoppingCart;

@@ -33,3 +33,35 @@ if (!app.document.head.querySelector("[data-hide-command-log-request]")) {
 
   app.document.head.appendChild(style);
 }
+import HomePage from "../support/pageObjects/homePage";
+import ShoppingCart from "../support/pageObjects/shoppingCart";
+
+Cypress.Commands.add("addItemsToCartFromFixture", () => {
+  const homePage = new HomePage();
+  const shoppingCart = new ShoppingCart();
+  cy.fixture("example.json").then((fixture) => {
+    let totalItemsAdded = 0;
+    fixture.tobuy.forEach((productName) => {
+      homePage.searchBox().type(productName);
+      homePage.searchButton().click();
+      shoppingCart.addToCartButton().click();
+      cy.wait(1000);
+      shoppingCart.barNotification().then((notification) => {
+        if (notification.text().includes("Out of stock")) {
+          cy.log(`${productName} is out of stock`);
+        } else {
+          shoppingCart
+            .barNotificationSucess()
+            .should("exist")
+            .and("be.visible");
+          totalItemsAdded = totalItemsAdded + 1;
+        }
+        shoppingCart
+          .shoppingCartQty()
+          .should("exist")
+          .invoke("text")
+          .should("eq", `(${totalItemsAdded})`);
+      });
+    });
+  });
+});
