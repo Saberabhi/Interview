@@ -3,20 +3,28 @@ class HomePage {
     return cy.get(".ico-login");
   }
 
-  static getShoppingCart() {
+  getShoppingCart() {
     return cy.get(".ico-cart > .cart-label");
   }
 
-  static getFeaturedProducts() {
+  getFeaturedProducts() {
     return cy.get(".product-item");
   }
 
-  static searchBox() {
+  searchBox() {
     return cy.get("#small-searchterms");
   }
 
-  static searchButton() {
+  searchButton() {
     return cy.get("form > .button-1");
+  }
+
+  accountName() {
+    return cy.get(".header-links > ul > :nth-child(1) > .account");
+  }
+
+  logoutButton() {
+    return cy.get(".ico-logout");
   }
 }
 

@@ -1,13 +1,17 @@
 class CheckoutPage {
-  static checkoutAsGuest() {
+  checkoutAsGuest() {
     return cy.get(".checkout-as-guest-button");
   }
-  static registerButton() {
+  registerButton() {
     return cy.get(".register-button");
   }
 
-  static continueButton1() {
+  continueButton1() {
     return cy.get("#billing-buttons-container > .button-1");
+  }
+
+  fieldValidationError() {
+    return cy.get(".field-validation-error");
   }
 }
 

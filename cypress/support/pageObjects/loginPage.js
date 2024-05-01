@@ -16,6 +16,14 @@ class LoginPage {
     this.fillPassword(password);
     this.submitLoginForm();
   }
+
+  loginError1() {
+    return cy.get(".validation-summary-errors > span");
+  }
+
+  loginError2() {
+    return cy.get(".validation-summary-errors > ul > li");
+  }
 }
 
 export default LoginPage;

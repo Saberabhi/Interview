@@ -1,5 +1,5 @@
 class ShoppingCart {
-  static updateCart() {
+  updateCart() {
     return cy.get(".button-2.update-cart-button");
   }
 
@@ -7,19 +7,31 @@ class ShoppingCart {
     return cy.get("button-2.continue-shopping-button");
   }
 
-  static checkout() {
+  addToCartButton() {
+    return cy.get(".button-2");
+  }
+
+  checkout() {
     return cy.get(".button-1.checkout-button");
   }
 
-  static termsOfService() {
+  barNotification() {
+    return cy.get(".bar-notification");
+  }
+
+  barNotificationSucess() {
+    return cy.get(".bar-notification.success");
+  }
+
+  termsOfService() {
     return cy.get("#termsofservice");
   }
 
-  static removeFromCart() {
+  removeFromCart() {
     return cy.get("input[name='removefromcart']");
   }
 
-  static removeItem() {
+  removeItem() {
     return cy.get(":nth-child(2) > .remove-from-cart > input");
   }
 }
