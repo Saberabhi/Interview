@@ -7,5 +7,13 @@ module.exports = defineConfig({
     },
     baseUrl: "http://demowebshop.tricentis.com/",
     chromeWebSecurity: false,
+
+    reporterOptions: {
+      charts: true,
+      overwrite: false,
+      html: false,
+      json: true,
+      reportDir: "cypress/reports",
+    },
   },
 });

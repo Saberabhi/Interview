@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-01T21:24:29.200Z",
+    "end": "2024-05-01T21:24:45.855Z",
+    "duration": 16655,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1e210258-ee0a-4e8c-888b-b4d68c4f12b7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\searchProductsFunctionality.cy.js",
+      "file": "cypress\\e2e\\searchProductsFunctionality.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3fb33584-2f5f-42ec-bc30-e0d694d0c605",
+          "title": "Product browsing and searching",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should search for products from fixtures file and validate their existence",
+              "fullTitle": "Product browsing and searching should search for products from fixtures file and validate their existence",
+              "timedOut": null,
+              "duration": 12229,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"example.json\").then(fixture => {\n  fixture.products.forEach(productName => {\n    homePage.searchBox().type(productName);\n    homePage.searchButton().click();\n    cy.contains(productName).should(\"be.visible\");\n  });\n});",
+              "err": {},
+              "uuid": "3d3701e8-f8a7-4873-8ba9-dab69c88cb71",
+              "parentUUID": "3fb33584-2f5f-42ec-bc30-e0d694d0c605",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle negative test cases for product not found",
+              "fullTitle": "Product browsing and searching should handle negative test cases for product not found",
+              "timedOut": null,
+              "duration": 2062,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.searchBox().type(\"no product\");\nhomePage.searchButton().click();\ncy.contains(\"No products were found that matched your criteria.\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "2058c5cc-2689-48ad-b5d2-15f62d171bf7",
+              "parentUUID": "3fb33584-2f5f-42ec-bc30-e0d694d0c605",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3d3701e8-f8a7-4873-8ba9-dab69c88cb71",
+            "2058c5cc-2689-48ad-b5d2-15f62d171bf7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14291,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
