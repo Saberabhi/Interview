@@ -1,0 +1,337 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2024-05-01T19:43:06.724Z",
+    "end": "2024-05-01T19:44:41.689Z",
+    "duration": 94965
+  },
+  "results": [
+    {
+      "uuid": "bac0469d-0632-4385-b46f-ee8cea870458",
+      "title": "",
+      "fullFile": "cypress\\e2e\\homePageFunctionality.cy.js",
+      "file": "cypress\\e2e\\homePageFunctionality.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "814e1fd4-6189-4d35-857d-2a8b4c30d721",
+          "title": "Login/Logout functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should log in with valid credentials",
+              "fullTitle": "Login/Logout functionality should log in with valid credentials",
+              "timedOut": null,
+              "duration": 6982,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.login(\"user.one@yopmail.com\", \"1Q@qwe\");\ncy.url().should(\"eq\", \"https://demowebshop.tricentis.com/\");\nhomePage.accountName().should(\"have.text\", \"user.one@yopmail.com\").should(\"be.visible\");\nhomePage.logoutButton().should(\"exist\").click();",
+              "err": {},
+              "uuid": "2ccfefb6-2661-4bfc-9c98-eb4a49dcb301",
+              "parentUUID": "814e1fd4-6189-4d35-857d-2a8b4c30d721",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message for invalid credentials",
+              "fullTitle": "Login/Logout functionality should display error message for invalid credentials",
+              "timedOut": null,
+              "duration": 2516,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.login(\"invalid@yopmail.com\", \"invalidpassword\");\nloginPage.loginError1().should(\"have.text\", \"Login was unsuccessful. Please correct the errors and try again.\");\nloginPage.loginError2().should(\"have.text\", \"No customer account found\");",
+              "err": {},
+              "uuid": "ada394bf-84d0-45ad-bb83-4177ff156f81",
+              "parentUUID": "814e1fd4-6189-4d35-857d-2a8b4c30d721",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2ccfefb6-2661-4bfc-9c98-eb4a49dcb301",
+            "ada394bf-84d0-45ad-bb83-4177ff156f81"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9498,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "9c0400ca-ed9d-4897-9a32-98df7fe403f0",
+          "title": "Featured Products on Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should validate featured products on the home page",
+              "fullTitle": "Featured Products on Home Page should validate featured products on the home page",
+              "timedOut": null,
+              "duration": 995,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Assert that at least one featured product is visible\nhomePage.getFeaturedProducts().should(\"be.visible\");\n//Assert that each featured product has image, product title, product rating, price, and an \"Add to Cart\" button\nhomePage.getFeaturedProducts().each($product => {\n  cy.wrap($product).find(\".picture\").should(\"be.visible\");\n  cy.wrap($product).find(\".product-title\").should(\"be.visible\");\n  cy.wrap($product).find(\".rating\").should(\"be.visible\");\n  cy.wrap($product).find(\".prices\").should(\"be.visible\");\n  cy.wrap($product).find(\".buttons\").should(\"be.visible\");\n});",
+              "err": {},
+              "uuid": "0076cd9b-6917-4848-9321-7c7c725e52ef",
+              "parentUUID": "9c0400ca-ed9d-4897-9a32-98df7fe403f0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0076cd9b-6917-4848-9321-7c7c725e52ef"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 995,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "6bd91111-b1ab-41fc-be18-56b2269b0612",
+      "title": "",
+      "fullFile": "cypress\\e2e\\searchProductsFunctionality.cy.js",
+      "file": "cypress\\e2e\\searchProductsFunctionality.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e89cb077-41ae-4bef-9012-f758afa7a254",
+          "title": "Product browsing and searching",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should search for products from fixtures file and validate their existence",
+              "fullTitle": "Product browsing and searching should search for products from fixtures file and validate their existence",
+              "timedOut": null,
+              "duration": 12569,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"example.json\").then(fixture => {\n  fixture.products.forEach(productName => {\n    homePage.searchBox().type(productName);\n    homePage.searchButton().click();\n    cy.contains(productName).should(\"be.visible\");\n  });\n});",
+              "err": {},
+              "uuid": "e114041e-daef-4400-88ce-3a5255673ba8",
+              "parentUUID": "e89cb077-41ae-4bef-9012-f758afa7a254",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle negative test cases for product not found",
+              "fullTitle": "Product browsing and searching should handle negative test cases for product not found",
+              "timedOut": null,
+              "duration": 1971,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.searchBox().type(\"no product\");\nhomePage.searchButton().click();\ncy.contains(\"No products were found that matched your criteria.\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "35d25389-fad3-4c13-a978-e1213aa32166",
+              "parentUUID": "e89cb077-41ae-4bef-9012-f758afa7a254",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e114041e-daef-4400-88ce-3a5255673ba8",
+            "35d25389-fad3-4c13-a978-e1213aa32166"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14540,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "bb426c66-35f6-4b88-b566-ae71b3630fff",
+      "title": "",
+      "fullFile": "cypress\\e2e\\addToCart.cy.js",
+      "file": "cypress\\e2e\\addToCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2578d084-4774-41f4-b15e-4b3acc3eb9d4",
+          "title": "Add to Cart and Delete Item",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should search for items from fixtures and adds available items to cart",
+              "fullTitle": "Add to Cart and Delete Item should search for items from fixtures and adds available items to cart",
+              "timedOut": null,
+              "duration": 18771,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.addItemsToCartFromFixture();\nhomePage.getShoppingCart().click();",
+              "err": {},
+              "uuid": "964f2bb4-fc7c-42c8-819f-2f2c605c9bc4",
+              "parentUUID": "2578d084-4774-41f4-b15e-4b3acc3eb9d4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "updates the shopping cart by deleting one item",
+              "fullTitle": "Add to Cart and Delete Item updates the shopping cart by deleting one item",
+              "timedOut": null,
+              "duration": 18465,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.addItemsToCartFromFixture();\nhomePage.getShoppingCart().click();\nshoppingCart.removeFromCart(\".cart-item:nth-child(2) input[type='checkbox']\");\nshoppingCart.removeItem(2).check().should(\"be.checked\");\nshoppingCart.updateCart().click();\nshoppingCart.termsOfService().check().should(\"be.checked\");\nshoppingCart.checkout().click();",
+              "err": {},
+              "uuid": "b7b0639b-947c-4775-bafb-3b69377c988d",
+              "parentUUID": "2578d084-4774-41f4-b15e-4b3acc3eb9d4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "proceed to checkout",
+              "fullTitle": "Add to Cart and Delete Item proceed to checkout",
+              "timedOut": null,
+              "duration": 18840,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture(\"example.json\").then(fixture => {\n  cy.addItemsToCartFromFixture();\n  homePage.getShoppingCart().click();\n  shoppingCart.termsOfService().check().should(\"be.checked\");\n  shoppingCart.checkout().click();\n  checkoutPage.checkoutAsGuest().click();\n  checkoutPage.continueButton1().click();\n  checkoutPage.fieldValidationError().should(\"have.length.gt\", 0);\n});",
+              "err": {},
+              "uuid": "e1b7c101-eaf7-485e-9efc-3b4b447e1375",
+              "parentUUID": "2578d084-4774-41f4-b15e-4b3acc3eb9d4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "964f2bb4-fc7c-42c8-819f-2f2c605c9bc4",
+            "b7b0639b-947c-4775-bafb-3b69377c988d",
+            "e1b7c101-eaf7-485e-9efc-3b4b447e1375"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 56076,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
